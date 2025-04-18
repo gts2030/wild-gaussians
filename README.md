@@ -51,12 +51,13 @@ cd wild-gaussians
 
 conda create -y -n wg python=3.11
 conda activate wg
-conda install -y --override-channels -c nvidia/label/cuda-11.8.0 cuda-toolkit
 conda env config vars set NERFBASELINES_BACKEND=python
 pip install --upgrade pip
 pip install -r requirements.txt
-pip install nerfbaselines>=1.2.0
-pip install -e ./submodules/diff-gaussian-rasterization ./submodules/simple-knn
+pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+pip install nerfbaselines
+pip install -e ./submodules/diff-gaussian-rasterization
+pip install git+https://github.com/camenduru/simple-knn
 pip install -e .
 ```
 
